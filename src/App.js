@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-// import { API } from "aws-amplify";
-import { API, Storage } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';
 import {
   Button,
   Flex,
@@ -20,6 +19,7 @@ import {
 } from "./graphql/mutations";
 
 const App = ({ signOut }) => {
+  const API = generateClient();
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
